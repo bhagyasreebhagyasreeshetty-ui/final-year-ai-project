@@ -1,0 +1,6 @@
+streamlit
+google-generativeai
+pandas
+numpy
+requests
+Pillow==10.4.0
