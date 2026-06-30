@@ -3,17 +3,11 @@ from ai_engine import ask_ai
 
 st.title("AI Final Year Guide")
 
-branch = st.selectbox(
-    "Select Branch",
-    ["CSE", "ECE", "EEE", "MECH"]
-)
+branch = st.selectbox("Select Branch", ["CSE", "ECE", "EEE", "MECH"])
 
-domain = st.text_input(
-    "Enter Domain (AI, IoT, Cyber Security, Robotics)"
-)
+domain = st.text_input("Enter Domain (AI, IoT, Cyber Security, Robotics)")
 
 if st.button("Generate Complete Project"):
-
     prompt = f"""
 You are a Final Year Project Expert.
 
@@ -46,14 +40,8 @@ Provide:
 20. Team Roles
 """
 
-    language = st.session_state.get(
-        "language",
-        "English"
-    )
+    language = st.session_state.get("language", "English")
 
-    result = ask_ai(
-        prompt,
-        language
-    )
+    result = ask_ai(prompt, language)
 
     st.write(result)

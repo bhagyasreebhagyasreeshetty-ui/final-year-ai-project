@@ -1,12 +1,13 @@
-import google.generativeai as genai
 import os
+from google import genai
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-model = genai.GenerativeModel("gemini-2.0-flash")
 
-response = model.generate_content(
-    "Give me 3 AI final year project ideas"
-)
+def test_generate_content():
+    response = client.models.generate_content(
+        model="gemini-2.5-flash", contents="Hello"
+    )
 
-print(response.text)
+    assert response.text
+    print(response.text)
